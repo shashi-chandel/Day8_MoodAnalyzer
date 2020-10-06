@@ -18,4 +18,11 @@ public class MoodAnalyzerTest {
 		String mood = moodAnalyzer.analyseMood();
 		Assert.assertEquals("HAPPY", mood);
 	}
+	
+	@Test
+	public void givenMessage_WhenNull_ShouldReturnHappy() {
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+		String mood = moodAnalyzer.analyseMood();
+		Assert.assertEquals("HAPPY", mood);
+	}
 }
