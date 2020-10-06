@@ -1,5 +1,7 @@
 package com.capgemini.day8moodanalyzer;
 
+import com.capgemini.day8moodanalyzer.MoodAnalysisException.ExceptionType;
+
 public class MoodAnalyzer {
 	private String message;
 
@@ -11,15 +13,19 @@ public class MoodAnalyzer {
 		this.message = message;
 	}
 
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException {
 		try {
-			if (message.contains("Sad")) {
+			if (message.length() == 0)
+				throw new MoodAnalysisException(ExceptionType.ENTERED_EMPTY, "Empty message");
+			if (message.contains(("Sad")))
 				return "SAD";
-			} else {
+			else
 				return "HAPPY";
-			}
-		}catch(NullPointerException e) {
-			return "HAPPY";
+
+		} catch (NullPointerException e) {
+
+			throw new MoodAnalysisException(ExceptionType.ENTERED_NULL, "Null message");
+
 		}
 	}
 }
