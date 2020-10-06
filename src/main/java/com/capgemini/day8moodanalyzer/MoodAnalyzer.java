@@ -1,11 +1,21 @@
 package com.capgemini.day8moodanalyzer;
 
 public class MoodAnalyzer {
-	public String analyseMood(String message) {
-		if (message.contains(("sad"))) {
+	private String message;
+
+	public MoodAnalyzer() {
+		super();
+	}
+
+	public MoodAnalyzer(String message) {
+		this.message = message;
+	}
+
+	public String analyseMood() {
+
+		if (message.contains("Sad"))
 			return "SAD";
-		} else {
+		else
 			return "HAPPY";
-		}
 	}
 }
